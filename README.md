@@ -2,7 +2,7 @@
 
 ## 01. About me
 
-- Information Security student at **HCMUTE**, Ho Chi Minh City.
+- Information Security student at **HCMUTE**, Ho Chi Minh City, Vietnam
 - **Finalist** (Consolation Prize) at the Cybersecurity Student Contest (CSC) 2026, Group A.
 - **1st place** at HCMUTE Capture the Flag (UTECTF) 2026.
 - Freelance pentester: web and API testing, source code audit, LLM and MCP security.
@@ -13,7 +13,7 @@
 
 <table>
 <tr><th width="48" align="left"></th><th width="356" align="left">Result</th><th width="435" align="left">Event</th></tr>
-<tr><td><img src="assets/icons/finalist.svg" width="22" height="22" alt=""></td><td><b>Finalist</b> · Consolation Prize</td><td>Cybersecurity Student Contest (CSC) 2026 · Group A</td></tr>
+<tr><td><img src="assets/icons/finalist.svg" width="22" height="22" alt=""></td><td><b>Finalist</b> · Consolation Prize</td><td>Cybersecurity Student Contest (CSC) 2026 · Group A · Vietnam </td></tr>
 <tr><td><img src="assets/icons/first.svg" width="22" height="22" alt=""></td><td><b>1st Place</b> · Champion</td><td>HCMUTE Capture the Flag (UTECTF) 2026</td></tr>
 <tr><td><img src="assets/icons/bounty.svg" width="22" height="22" alt=""></td><td><b>1x Bounty</b> · Mapbox · HackerOne</td><td></td></tr>
 <tr><td><img src="assets/icons/cve.svg" width="22" height="22" alt=""></td><td><b>4x CVE</b> · Responsible disclosure</td><td></td></tr>
