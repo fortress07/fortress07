@@ -46,50 +46,50 @@
 ### Languages
 
 <table>
-<tr><th width="80" align="left">Python</th><th width="117" align="left">JavaScript</th><th width="73" align="left">C</th><th width="73" align="left">C++</th><th width="73" align="left">Java</th><th width="80" align="left">Pascal</th><th width="73" align="left">Bash</th><th width="117" align="left">PowerShell</th><th width="73" align="left">HTML5</th><th width="73" align="left">CSS3</th></tr>
-<tr><td><img src="assets/icons/python.svg" width="48" height="48" alt="Python"></td><td><img src="assets/icons/javascript.svg" width="48" height="48" alt="JavaScript"></td><td><img src="assets/icons/c.svg" width="48" height="48" alt="C"></td><td><img src="assets/icons/cpp.svg" width="48" height="48" alt="C++"></td><td><img src="assets/icons/java.svg" width="48" height="48" alt="Java"></td><td><img src="assets/icons/pascal.svg" width="48" height="48" alt="Pascal"></td><td><img src="assets/icons/bash.svg" width="48" height="48" alt="Bash"></td><td><img src="assets/icons/powershell.svg" width="48" height="48" alt="PowerShell"></td><td><img src="assets/icons/html5.svg" width="48" height="48" alt="HTML5"></td><td><img src="assets/icons/css3.svg" width="48" height="48" alt="CSS3"></td></tr>
+<tr><th width="80" align="center">Python</th><th width="117" align="center">JavaScript</th><th width="73" align="center">C</th><th width="73" align="center">C++</th><th width="73" align="center">Java</th><th width="80" align="center">Pascal</th><th width="73" align="center">Bash</th><th width="117" align="center">PowerShell</th><th width="73" align="center">HTML5</th><th width="73" align="center">CSS3</th></tr>
+<tr><td align="center"><img src="assets/icons/python.svg" width="48" height="48" alt="Python"></td><td align="center"><img src="assets/icons/javascript.svg" width="48" height="48" alt="JavaScript"></td><td align="center"><img src="assets/icons/c.svg" width="48" height="48" alt="C"></td><td align="center"><img src="assets/icons/cpp.svg" width="48" height="48" alt="C++"></td><td align="center"><img src="assets/icons/java.svg" width="48" height="48" alt="Java"></td><td align="center"><img src="assets/icons/pascal.svg" width="48" height="48" alt="Pascal"></td><td align="center"><img src="assets/icons/bash.svg" width="48" height="48" alt="Bash"></td><td align="center"><img src="assets/icons/powershell.svg" width="48" height="48" alt="PowerShell"></td><td align="center"><img src="assets/icons/html5.svg" width="48" height="48" alt="HTML5"></td><td align="center"><img src="assets/icons/css3.svg" width="48" height="48" alt="CSS3"></td></tr>
 </table>
 
 ### Tooling
 
 <table>
-<tr><th width="114" align="left">Node.js</th><th width="114" align="left">Git</th><th width="154" align="left">GitHub Actions</th><th width="114" align="left">pytest</th><th width="114" align="left">Ruff</th><th width="114" align="left">SonarQube</th><th width="114" align="left">Linux</th></tr>
-<tr><td><img src="assets/icons/node-js.svg" width="48" height="48" alt="Node.js"></td><td><img src="assets/icons/git.svg" width="48" height="48" alt="Git"></td><td><img src="assets/icons/github-actions.svg" width="48" height="48" alt="GitHub Actions"></td><td><img src="assets/icons/pytest.svg" width="48" height="48" alt="pytest"></td><td><img src="assets/icons/ruff.svg" width="48" height="48" alt="Ruff"></td><td><img src="assets/icons/sonarqube.svg" width="48" height="48" alt="SonarQube"></td><td><img src="assets/icons/linux.svg" width="48" height="48" alt="Linux"></td></tr>
+<tr><th width="114" align="center">Node.js</th><th width="114" align="center">Git</th><th width="154" align="center">GitHub Actions</th><th width="114" align="center">pytest</th><th width="114" align="center">Ruff</th><th width="114" align="center">SonarQube</th><th width="114" align="center">Linux</th></tr>
+<tr><td align="center"><img src="assets/icons/node-js.svg" width="48" height="48" alt="Node.js"></td><td align="center"><img src="assets/icons/git.svg" width="48" height="48" alt="Git"></td><td align="center"><img src="assets/icons/github-actions.svg" width="48" height="48" alt="GitHub Actions"></td><td align="center"><img src="assets/icons/pytest.svg" width="48" height="48" alt="pytest"></td><td align="center"><img src="assets/icons/ruff.svg" width="48" height="48" alt="Ruff"></td><td align="center"><img src="assets/icons/sonarqube.svg" width="48" height="48" alt="SonarQube"></td><td align="center"><img src="assets/icons/linux.svg" width="48" height="48" alt="Linux"></td></tr>
 </table>
 
 ### AI / ML
 
 <table>
-<tr><th width="280" align="left">PyTorch</th><th width="280" align="left">Transformers</th><th width="280" align="left">PEFT</th></tr>
-<tr><td><img src="assets/icons/pytorch.svg" width="48" height="48" alt="PyTorch"></td><td><img src="assets/icons/transformers.svg" width="48" height="48" alt="Transformers"></td><td><img src="assets/icons/peft.svg" width="48" height="48" alt="PEFT"></td></tr>
+<tr><th width="280" align="center">PyTorch</th><th width="280" align="center">Transformers</th><th width="280" align="center">PEFT</th></tr>
+<tr><td align="center"><img src="assets/icons/pytorch.svg" width="48" height="48" alt="PyTorch"></td><td align="center"><img src="assets/icons/transformers.svg" width="48" height="48" alt="Transformers"></td><td align="center"><img src="assets/icons/peft.svg" width="48" height="48" alt="PEFT"></td></tr>
 </table>
 
 ### Offensive
 
 <table>
-<tr><th width="168" align="left">Burp Suite</th><th width="168" align="left">Nmap</th><th width="168" align="left">sqlmap</th><th width="168" align="left">Wireshark</th><th width="168" align="left">IDA Pro</th></tr>
-<tr><td><img src="assets/icons/burp-suite.svg" width="48" height="48" alt="Burp Suite"></td><td><img src="assets/icons/nmap.svg" width="48" height="48" alt="Nmap"></td><td><img src="assets/icons/sqlmap.svg" width="48" height="48" alt="sqlmap"></td><td><img src="assets/icons/wireshark.svg" width="48" height="48" alt="Wireshark"></td><td><img src="assets/icons/ida-pro.svg" width="48" height="48" alt="IDA Pro"></td></tr>
+<tr><th width="168" align="center">Burp Suite</th><th width="168" align="center">Nmap</th><th width="168" align="center">sqlmap</th><th width="168" align="center">Wireshark</th><th width="168" align="center">IDA Pro</th></tr>
+<tr><td align="center"><img src="assets/icons/burp-suite.svg" width="48" height="48" alt="Burp Suite"></td><td align="center"><img src="assets/icons/nmap.svg" width="48" height="48" alt="Nmap"></td><td align="center"><img src="assets/icons/sqlmap.svg" width="48" height="48" alt="sqlmap"></td><td align="center"><img src="assets/icons/wireshark.svg" width="48" height="48" alt="Wireshark"></td><td align="center"><img src="assets/icons/ida-pro.svg" width="48" height="48" alt="IDA Pro"></td></tr>
 </table>
 
 ### Infra & defense
 
 <table>
-<tr><th width="280" align="left">Docker</th><th width="280" align="left">pfSense</th><th width="280" align="left">Suricata</th></tr>
-<tr><td><img src="assets/icons/docker.svg" width="48" height="48" alt="Docker"></td><td><img src="assets/icons/pfsense.svg" width="48" height="48" alt="pfSense"></td><td><img src="assets/icons/suricata.svg" width="48" height="48" alt="Suricata"></td></tr>
+<tr><th width="280" align="center">Docker</th><th width="280" align="center">pfSense</th><th width="280" align="center">Suricata</th></tr>
+<tr><td align="center"><img src="assets/icons/docker.svg" width="48" height="48" alt="Docker"></td><td align="center"><img src="assets/icons/pfsense.svg" width="48" height="48" alt="pfSense"></td><td align="center"><img src="assets/icons/suricata.svg" width="48" height="48" alt="Suricata"></td></tr>
 </table>
 
 ### Code audit
 
 <table>
-<tr><th width="280" align="left">Semgrep</th><th width="280" align="left">CodeQL</th><th width="280" align="left">OWASP Top 10</th></tr>
-<tr><td><img src="assets/icons/semgrep.svg" width="48" height="48" alt="Semgrep"></td><td><img src="assets/icons/codeql.svg" width="48" height="48" alt="CodeQL"></td><td><img src="assets/icons/owasp-top-10.svg" width="48" height="48" alt="OWASP Top 10"></td></tr>
+<tr><th width="280" align="center">Semgrep</th><th width="280" align="center">CodeQL</th><th width="280" align="center">OWASP Top 10</th></tr>
+<tr><td align="center"><img src="assets/icons/semgrep.svg" width="48" height="48" alt="Semgrep"></td><td align="center"><img src="assets/icons/codeql.svg" width="48" height="48" alt="CodeQL"></td><td align="center"><img src="assets/icons/owasp-top-10.svg" width="48" height="48" alt="OWASP Top 10"></td></tr>
 </table>
 
 ### Focus areas
 
 <table>
-<tr><th width="180" align="left">Web & API pentest</th><th width="180" align="left">Source code audit</th><th width="153" align="left">Taint analysis</th><th width="135" align="left">Supply chain</th><th width="189" align="left">LLM / MCP security</th></tr>
-<tr><td><img src="assets/icons/web-api-pentest.svg" width="48" height="48" alt="Web &amp; API pentest"></td><td><img src="assets/icons/source-code-audit.svg" width="48" height="48" alt="Source code audit"></td><td><img src="assets/icons/taint-analysis.svg" width="48" height="48" alt="Taint analysis"></td><td><img src="assets/icons/supply-chain.svg" width="48" height="48" alt="Supply chain"></td><td><img src="assets/icons/llm-mcp-security.svg" width="48" height="48" alt="LLM / MCP security"></td></tr>
+<tr><th width="180" align="center">Web & API pentest</th><th width="180" align="center">Source code audit</th><th width="153" align="center">Taint analysis</th><th width="135" align="center">Supply chain</th><th width="189" align="center">LLM / MCP security</th></tr>
+<tr><td align="center"><img src="assets/icons/web-api-pentest.svg" width="48" height="48" alt="Web &amp; API pentest"></td><td align="center"><img src="assets/icons/source-code-audit.svg" width="48" height="48" alt="Source code audit"></td><td align="center"><img src="assets/icons/taint-analysis.svg" width="48" height="48" alt="Taint analysis"></td><td align="center"><img src="assets/icons/supply-chain.svg" width="48" height="48" alt="Supply chain"></td><td align="center"><img src="assets/icons/llm-mcp-security.svg" width="48" height="48" alt="LLM / MCP security"></td></tr>
 </table>
 
 ## 06. Links

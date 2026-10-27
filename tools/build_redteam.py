@@ -115,21 +115,22 @@ def allocate(mins, shares, budget):
         fixed.update({i: mins[i] for i in grow})
 
 
-def table(headers, rows, shares, mins=None):
-    """A left-aligned HTML table as wide as the README column. shares split the width;
-    mins keep columns with unbreakable content (pills, IDs, icons) from getting too narrow."""
+def table(headers, rows, shares, mins=None, align="left"):
+    """An HTML table as wide as the README column. shares split the width; mins keep
+    columns with unbreakable content (pills, IDs, icons) from getting too narrow."""
     mins = [max(m, len(h) * HEADER_CHAR + CELL_PAD) for m, h in zip(mins or [0] * len(headers), headers)]
     widths = allocate(mins, shares, README_WIDTH)
-    head = "<tr>" + "".join(f'<th width="{int(w)}" align="left">{h}</th>' for w, h in zip(widths, headers)) + "</tr>"
-    body = "\n".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
+    td = f'<td align="{align}">' if align != "left" else "<td>"
+    head = "<tr>" + "".join(f'<th width="{int(w)}" align="{align}">{h}</th>' for w, h in zip(widths, headers)) + "</tr>"
+    body = "\n".join("<tr>" + "".join(f"{td}{c}</td>" for c in r) + "</tr>" for r in rows)
     return f"<table>\n{head}\n{body}\n</table>"
 
 
 def stack_table(items):
-    """Names over icons, one row per category, columns sharing the width evenly."""
+    """Names over icons, centred, one row per category, columns sharing the width evenly."""
     n = len(items)
     return table([label for _, label in items], [[bt.icon(bt.slug(label), 48, label) for _, label in items]],
-                 [1] * n, [48 + CELL_PAD] * n)
+                 [1] * n, [48 + CELL_PAD] * n, align="center")
 
 
 def build_readme():
