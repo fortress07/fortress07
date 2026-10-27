@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Generate every SVG under assets/ for the fortress07 profile README.
+"""Generate every SVG under assets/, and README.md, for the fortress07 profile.
 
     uv run --with fonttools --with brotli tools/build.py
 
-Each image is drawn twice, into assets/dark/ and assets/light/, and README.md
-picks one with <picture> so it matches the viewer's GitHub theme.
+Each image is drawn twice, into assets/dark/ and assets/light/. README.md links
+both copies and ends each link with #gh-dark-mode-only or #gh-light-mode-only:
+GitHub's own CSS hides the copy that does not match the theme chosen on GitHub.
+(<picture> follows the OS theme instead, so it shows the wrong copy whenever a
+visitor picks a GitHub theme that differs from their system.) That suffix is why
+links here must not carry a #fragment of their own.
 
 Fonts (JetBrains Mono, OFL-1.1), brand logos (Simple Icons, CC0) and glyphs
 (Primer Octicons, MIT) are downloaded once into tools/.cache. Each SVG embeds a
 subset of the font it actually uses, so GitHub draws it the same on every OS.
 
-To add a new CVE, append it to DISCLOSURES and rerun. README.md lists the
-row images by slug, so add a matching line there too.
+To add a new CVE, append it to DISCLOSURES and rerun; README.md is rewritten too.
 """
 
 import base64
@@ -68,23 +71,23 @@ PORTFOLIO = "https://fortress07.github.io/profile/"
 DISCLOSURES = [
     # line is the CWE class shown under each row; radar is the blip's bearing and radius
     dict(slug="55640", id="CVE-2026-55640", pkg="nextcloud-mcp-server", score="9.1",
-         sev="CRITICAL", cvss="CVSS 3.1", date="2026-06-14", wu="wu-55640",
+         sev="CRITICAL", cvss="CVSS 3.1", date="2026-06-14", url="https://github.com/cbcoutinho/nextcloud-mcp-server/security/advisories/GHSA-8vh3-g2qg-2h2c",
          line="CWE-306 · Missing Authentication for Critical Function",
          radar=(40, 100)),
     dict(slug="55849", id="CVE-2026-55849", pkg="@cyclonedx/cyclonedx-npm", score="8.5",
-         sev="HIGH", cvss="CVSS 4.0", date="2026-06-16", wu="wu-55849",
+         sev="HIGH", cvss="CVSS 4.0", date="2026-06-16", url="https://github.com/advisories/GHSA-v75r-vx73-82pj",
          line="CWE-78 · OS Command Injection",
          radar=(110, 120)),
     dict(slug="71538", id="CVE-2026-71538", pkg="@cyclonedx/cyclonedx-npm", score="8.5",
-         sev="HIGH", cvss="CVSS 4.0", date="2026-07-07", wu="wu-71538",
+         sev="HIGH", cvss="CVSS 4.0", date="2026-07-07", url="https://github.com/CycloneDX/cyclonedx-node-npm/security/advisories/GHSA-q69g-4hcv-6jg4",
          line="CWE-78 · OS Command Injection",
          radar=(165, 70)),
     dict(slug="pbf", id="Mapbox bounty", pkg="mapbox/pbf", score="8.1",
-         sev="HIGH", cvss="CVSS 3.1", date="2026-07-09", wu="wu-h1-pbf",
+         sev="HIGH", cvss="CVSS 3.1", date="2026-07-09", url="https://github.com/mapbox/pbf/pull/149",
          line="CWE-94 · Code Injection",
          radar=(232, 105)),
     dict(slug="57207", id="CVE-2026-57207", pkg="netbox-mcp-server", score="5.9",
-         sev="MODERATE", cvss="CVSS 3.1", date="2026-06-18", wu="wu-57207",
+         sev="MODERATE", cvss="CVSS 3.1", date="2026-06-18", url="https://github.com/netboxlabs/netbox-mcp-server/security/advisories/GHSA-5qg7-j8mr-9477",
          line="CWE-306 · Missing Authentication for Critical Function · CWE-1059 · Insufficient Technical Documentation",
          radar=(300, 128)),
 ]
@@ -124,17 +127,17 @@ STACK = [
 ]
 
 CONTACTS = [
-    dict(slug="email", icon="gmail", color="#ea4335", label="Email",
+    dict(slug="email", href="mailto:vophuvinh15012007@gmail.com?subject=Hello%20Fortress", icon="gmail", color="#ea4335", label="Email",
          handle="vophuvinh15012007@gmail.com"),
-    dict(slug="hackerone", icon="hackerone", color="TEXT", label="HackerOne",
+    dict(slug="hackerone", href="https://hackerone.com/fortress07vn", icon="hackerone", color="TEXT", label="HackerOne",
          handle="hackerone.com/fortress07vn"),
-    dict(slug="portfolio", icon="oct:globe-24", color="RED", label="Portfolio",
+    dict(slug="portfolio", href=PORTFOLIO, icon="oct:globe-24", color="RED", label="Portfolio",
          handle="fortress07.github.io/profile"),
-    dict(slug="facebook", icon="facebook", color="#0866ff", label="Facebook",
+    dict(slug="facebook", href="https://www.facebook.com/f0r7r355", icon="facebook", color="#0866ff", label="Facebook",
          handle="facebook.com/f0r7r355"),
-    dict(slug="instagram", icon="instagram", color="#ff3d8b", label="Instagram",
+    dict(slug="instagram", href="https://www.instagram.com/f0r7r355", icon="instagram", color="#ff3d8b", label="Instagram",
          handle="instagram.com/f0r7r355"),
-    dict(slug="tiktok", icon="tiktok", color="TEXT", label="TikTok",
+    dict(slug="tiktok", href="https://www.tiktok.com/@fortress.vn", icon="tiktok", color="TEXT", label="TikTok",
          handle="tiktok.com/@fortress.vn"),
 ]
 
@@ -178,7 +181,7 @@ def font_face(weight, chars):
     """Return a base64 woff2 subset of JetBrains Mono holding only `chars`."""
     key = (weight, chars)
     if key not in _face_cache:
-        font = TTFont(font_path(weight))
+        font = TTFont(font_path(weight), recalcTimestamp=False)  # same bytes every build
         opts = subset.Options()
         opts.flavor = "woff2"
         opts.layout_features = []  # no ligatures: "--" and "->" must stay literal
@@ -737,6 +740,56 @@ def build_footer():
     svg.save("footer.svg")
 
 
+# ---------------------------------------------------------------- readme
+
+PROJECT_URL = "https://github.com/fortress07/{}"
+
+
+def themed(name, alt, href=None, width="100%"):
+    """Both copies of an image; GitHub hides the one that does not match its theme."""
+    out = []
+    for theme in THEMES:
+        link = href or f"assets/{theme}/{name}"
+        assert "#" not in link, link
+        out.append(f'<a href="{link}#gh-{theme}-mode-only"><img src="assets/{theme}/{name}" '
+                   f'width="{width}" alt="{esc(alt)}"></a>')
+    return "".join(out)
+
+
+def build_readme():
+    sev = lambda d: f'{d["score"]} {d["sev"].title()}'
+    blocks = [
+        themed("banner.svg", "Võ Phú Vinh (Fortress). Information Security student at HCMUTE, "
+               "security researcher and freelance pentester.", PORTFOLIO),
+        themed("section-whoami.svg", "01 / whoami"),
+        themed("about.svg", "about.yml: Võ Phú Vinh, alias Fortress. Freelance pentester and "
+               "vulnerability researcher, Information Security student at HCMUTE. Focus: web, API, "
+               "source code audit, supply chain, LLM and MCP security."),
+        themed("section-hall-of-fame.svg", "02 / hall of fame"),
+        themed("achievements.svg", "Finalist with a Consolation Prize at the Cybersecurity Student "
+               "Contest 2026, Division A. First place at HCMUTE Capture the Flag 2026. A Mapbox bug "
+               "bounty on HackerOne (CWE-94 Code Injection). 4 CVEs (CWE-306 Missing Authentication, "
+               "CWE-78 OS Command Injection)."),
+        "\n".join(themed(f'cve-{d["slug"]}.svg', f'{d["id"]} · {d["pkg"]} · {sev(d)} · '
+                          f'{d["line"].split(" · ")[0]}', d["url"]) for d in DISCLOSURES),
+        themed("section-projects.svg", "03 / projects"),
+        '<p align="center">\n' + "\n".join(
+            "  " + themed(f'project-{p["slug"]}.svg',
+                          f'{p["title"]}: {p["desc"]} {", ".join(l[0] for l in p["langs"])}.',
+                          PROJECT_URL.format(p["repo"]), "32.3%") for p in PROJECTS) + "\n</p>",
+        themed("section-arsenal.svg", "04 / arsenal"),
+        themed("stack.svg", ". ".join(f'{cat.title()}: {", ".join(l for _, l in items)}'
+                                      for cat, items in STACK) + "."),
+        themed("section-links.svg", "05 / links"),
+        '<p align="center">\n' + "\n".join(
+            "  " + themed(f'contact-{c["slug"]}.svg', f'{c["label"]}: {c["handle"]}', c["href"], "32.3%")
+            for c in CONTACTS) + "\n</p>",
+        themed("footer.svg", "exit. Thanks for stopping by."),
+    ]
+    (ROOT / "README.md").write_text("\n\n".join(blocks) + "\n", encoding="utf-8")
+    print("  README.md")
+
+
 if __name__ == "__main__":
     for theme in THEMES:
         use_theme(theme)
@@ -750,3 +803,4 @@ if __name__ == "__main__":
         build_stack()
         build_contacts()
         build_footer()
+    build_readme()
