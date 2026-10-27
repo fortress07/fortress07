@@ -88,27 +88,48 @@ def build_icons():
 
 # ---------------------------------------------------------------- readme
 
-PER_ROW = 5  # stack tables wrap after this many columns, so they never scroll sideways
 STACK_TITLES = {"LANGUAGES": "Languages", "TOOLING": "Tooling", "AI / ML": "AI / ML",
                 "OFFENSIVE": "Offensive", "INFRA & DEFENSE": "Infra & defense", "CODE AUDIT": "Code audit",
                 "FOCUS": "Focus areas"}
 
 
+# GitHub sizes a table to its content (width: max-content), so percentages do
+# nothing. A pixel width on a header cell does hold, and GitHub uses border-box,
+# so the header widths add up to the table width.
+README_WIDTH = 840  # GitHub's profile README column is 846px wide
+HEADER_CHAR = 9.2   # px per character of a 16px semibold header, on the generous side
+CELL_PAD = 26       # 13px padding each side
+
+
+def allocate(mins, shares, budget):
+    """Split budget by shares, never giving a column less than its minimum."""
+    if sum(mins) >= budget:
+        return [m * budget / sum(mins) for m in mins]
+    fixed = {}
+    while True:
+        free = [i for i in range(len(shares)) if i not in fixed]
+        left, total = budget - sum(fixed.values()), sum(shares[i] for i in free)
+        grow = [i for i in free if mins[i] > left * shares[i] / total]
+        if not grow:
+            return [fixed.get(i, left * shares[i] / total) for i in range(len(shares))]
+        fixed.update({i: mins[i] for i in grow})
+
+
+def table(headers, rows, shares, mins=None):
+    """A left-aligned HTML table as wide as the README column. shares split the width;
+    mins keep columns with unbreakable content (pills, IDs, icons) from getting too narrow."""
+    mins = [max(m, len(h) * HEADER_CHAR + CELL_PAD) for m, h in zip(mins or [0] * len(headers), headers)]
+    widths = allocate(mins, shares, README_WIDTH)
+    head = "<tr>" + "".join(f'<th width="{int(w)}" align="left">{h}</th>' for w, h in zip(widths, headers)) + "</tr>"
+    body = "\n".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
+    return f"<table>\n{head}\n{body}\n</table>"
+
+
 def stack_table(items):
-    """Names over icons, wrapped into balanced rows of at most PER_ROW."""
-    rows = -(-len(items) // PER_ROW)
-    per = -(-len(items) // rows)
-    chunks = [items[k:k + per] for k in range(0, len(items), per)]
-    pad = lambda cells: cells + [""] * (per - len(cells))
-    lines = []
-    for n, chunk in enumerate(chunks):
-        names = [label if n == 0 else f"**{label}**" for _, label in chunk]
-        icons = [bt.icon(bt.slug(label), 48, label) for _, label in chunk]
-        lines.append("| " + " | ".join(pad(names)) + " |")
-        if n == 0:
-            lines.append("|" + ":-:|" * per)
-        lines.append("| " + " | ".join(pad(icons)) + " |")
-    return "\n".join(lines)
+    """Names over icons, one row per category, columns sharing the width evenly."""
+    n = len(items)
+    return table([label for _, label in items], [[bt.icon(bt.slug(label), 48, label) for _, label in items]],
+                 [1] * n, [48 + CELL_PAD] * n)
 
 
 def build_readme():
@@ -131,22 +152,24 @@ def build_readme():
         "- Responsible disclosure: report privately, help ship the fix, publish once users are safe.",
 
         "## 02. Achievements",
-        "| | Result | Event |\n|:-:|---|---|\n" + "\n".join(
-            f"| {bt.icon(n, 22)} | **{title}** · {sub} | {event} |" for n, title, sub, event in awards),
+        table(["", "Result", "Event"],
+              [[bt.icon(n, 22), f"<b>{title}</b> · {sub}", event] for n, title, sub, event in awards],
+              [1, 9, 11], [48, 0, 0]),
 
         "## 03. Vulnerability disclosures",
         '<p align="center"><img src="assets/radar.svg" width="340" alt="Radar sweep: 4 CVEs and 1 bug '
         'bounty, plotted by CVSS score."></p>',
-        "| CVSS | Finding | Weakness | Date |\n|:-:|---|---|:-:|\n" + "\n".join(
-            f'| <img src="assets/cvss-{d["slug"]}.svg" alt="{d["score"]} {d["sev"].title()}"> '
-            f'| [**{d["id"]}**]({b.PORTFOLIO}#/{d["wu"]})<br><sub><code>{d["pkg"]}</code></sub> '
-            f'| {bt.weakness(d["line"])} | {d["date"]} |' for d in b.DISCLOSURES),
+        table(["CVSS", "Finding", "Weakness", "Date"],
+              [[f'<img src="assets/cvss-{d["slug"]}.svg" alt="{d["score"]} {d["sev"].title()}">',
+                f'<a href="{b.PORTFOLIO}#/{d["wu"]}"><b>{d["id"]}</b></a><br><sub><code>{d["pkg"]}</code></sub>',
+                bt.weakness(d["line"]), d["date"]] for d in b.DISCLOSURES],
+              [3, 5, 8, 3], [136, 190, 0, 110]),
 
         "## 04. Projects",
-        "| Project | What it does | Language |\n|---|---|---|\n" + "\n".join(
-            f'| [**{p["title"].replace(" ", "&nbsp;")}**]({b.PROJECT_URL.format(p["repo"])}) | {p["desc"]} | '
-            + "<br>".join(l[0] for l in p["langs"]) + " |"
-            for p in b.PROJECTS),
+        table(["Project", "What it does", "Language"],
+              [[f'<a href="{b.PROJECT_URL.format(p["repo"])}"><b>{p["title"]}</b></a>', p["desc"],
+                "<br>".join(l[0] for l in p["langs"])] for p in b.PROJECTS],
+              [3, 10, 3], [140, 0, 110]),
 
         "## 05. Languages & tools",
     ]
@@ -154,9 +177,10 @@ def build_readme():
         out += [f"### {STACK_TITLES[cat]}", stack_table(items)]
     out += [
         "## 06. Links",
-        "| | Channel | Address |\n|:-:|---|---|\n" + "\n".join(
-            f'| {bt.icon("link-" + c["slug"], 20)} | **{c["label"]}** | [{c["handle"]}]({c["href"]}) |'
-            for c in b.CONTACTS),
+        table(["", "Channel", "Address"],
+              [[bt.icon("link-" + c["slug"], 20), f'<b>{c["label"]}</b>', f'<a href="{c["href"]}">{c["handle"]}</a>']
+               for c in b.CONTACTS],
+              [1, 5, 14], [48, 0, 0]),
         '<p align="center"><samp>[*] session closed · stay curious, disclose responsibly</samp></p>',
     ]
     (OUT_DIR / "README.md").write_text("\n\n".join(out) + "\n", encoding="utf-8")

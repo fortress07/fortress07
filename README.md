@@ -11,90 +11,97 @@
 
 ## 02. Achievements
 
-| | Result | Event |
-|:-:|---|---|
-| <img src="assets/icons/finalist.svg" width="22" height="22" alt=""> | **Finalist** · Consolation Prize | Cybersecurity Student Contest (CSC) 2026 · Group A |
-| <img src="assets/icons/first.svg" width="22" height="22" alt=""> | **1st Place** · Champion | HCMUTE Capture the Flag (UTECTF) 2026 |
-| <img src="assets/icons/bounty.svg" width="22" height="22" alt=""> | **1x Bounty** · Mapbox · HackerOne |  |
-| <img src="assets/icons/cve.svg" width="22" height="22" alt=""> | **4x CVE** · Responsible disclosure |  |
+<table>
+<tr><th width="48" align="left"></th><th width="356" align="left">Result</th><th width="435" align="left">Event</th></tr>
+<tr><td><img src="assets/icons/finalist.svg" width="22" height="22" alt=""></td><td><b>Finalist</b> · Consolation Prize</td><td>Cybersecurity Student Contest (CSC) 2026 · Group A</td></tr>
+<tr><td><img src="assets/icons/first.svg" width="22" height="22" alt=""></td><td><b>1st Place</b> · Champion</td><td>HCMUTE Capture the Flag (UTECTF) 2026</td></tr>
+<tr><td><img src="assets/icons/bounty.svg" width="22" height="22" alt=""></td><td><b>1x Bounty</b> · Mapbox · HackerOne</td><td></td></tr>
+<tr><td><img src="assets/icons/cve.svg" width="22" height="22" alt=""></td><td><b>4x CVE</b> · Responsible disclosure</td><td></td></tr>
+</table>
 
 ## 03. Vulnerability disclosures
 
 <p align="center"><img src="assets/radar.svg" width="340" alt="Radar sweep: 4 CVEs and 1 bug bounty, plotted by CVSS score."></p>
 
-| CVSS | Finding | Weakness | Date |
-|:-:|---|---|:-:|
-| <img src="assets/cvss-55640.svg" alt="9.1 Critical"> | [**CVE-2026-55640**](https://fortress07.github.io/profile/#/wu-55640)<br><sub><code>nextcloud-mcp-server</code></sub> | CWE-306 Missing Authentication | 2026-06-14 |
-| <img src="assets/cvss-55849.svg" alt="8.5 High"> | [**CVE-2026-55849**](https://fortress07.github.io/profile/#/wu-55849)<br><sub><code>@cyclonedx/cyclonedx-npm</code></sub> | CWE-78 OS Command Injection | 2026-06-16 |
-| <img src="assets/cvss-71538.svg" alt="8.5 High"> | [**CVE-2026-71538**](https://fortress07.github.io/profile/#/wu-71538)<br><sub><code>@cyclonedx/cyclonedx-npm</code></sub> | CWE-78 OS Command Injection | 2026-07-07 |
-| <img src="assets/cvss-pbf.svg" alt="8.1 High"> | [**Mapbox bounty**](https://fortress07.github.io/profile/#/wu-h1-pbf)<br><sub><code>mapbox/pbf</code></sub> | CWE-94 Code Injection | 2026-07-09 |
-| <img src="assets/cvss-57207.svg" alt="5.9 Moderate"> | [**CVE-2026-57207**](https://fortress07.github.io/profile/#/wu-57207)<br><sub><code>netbox-mcp-server</code></sub> | CWE-306 Missing Authentication<br>CWE-1059 Insufficient Documentation | 2026-06-18 |
+<table>
+<tr><th width="136" align="left">CVSS</th><th width="220" align="left">Finding</th><th width="352" align="left">Weakness</th><th width="132" align="left">Date</th></tr>
+<tr><td><img src="assets/cvss-55640.svg" alt="9.1 Critical"></td><td><a href="https://fortress07.github.io/profile/#/wu-55640"><b>CVE-2026-55640</b></a><br><sub><code>nextcloud-mcp-server</code></sub></td><td>CWE-306 Missing Authentication</td><td>2026-06-14</td></tr>
+<tr><td><img src="assets/cvss-55849.svg" alt="8.5 High"></td><td><a href="https://fortress07.github.io/profile/#/wu-55849"><b>CVE-2026-55849</b></a><br><sub><code>@cyclonedx/cyclonedx-npm</code></sub></td><td>CWE-78 OS Command Injection</td><td>2026-06-16</td></tr>
+<tr><td><img src="assets/cvss-71538.svg" alt="8.5 High"></td><td><a href="https://fortress07.github.io/profile/#/wu-71538"><b>CVE-2026-71538</b></a><br><sub><code>@cyclonedx/cyclonedx-npm</code></sub></td><td>CWE-78 OS Command Injection</td><td>2026-07-07</td></tr>
+<tr><td><img src="assets/cvss-pbf.svg" alt="8.1 High"></td><td><a href="https://fortress07.github.io/profile/#/wu-h1-pbf"><b>Mapbox bounty</b></a><br><sub><code>mapbox/pbf</code></sub></td><td>CWE-94 Code Injection</td><td>2026-07-09</td></tr>
+<tr><td><img src="assets/cvss-57207.svg" alt="5.9 Moderate"></td><td><a href="https://fortress07.github.io/profile/#/wu-57207"><b>CVE-2026-57207</b></a><br><sub><code>netbox-mcp-server</code></sub></td><td>CWE-306 Missing Authentication<br>CWE-1059 Insufficient Documentation</td><td>2026-06-18</td></tr>
+</table>
 
 ## 04. Projects
 
-| Project | What it does | Language |
-|---|---|---|
-| [**Fortress&nbsp;Scan**](https://github.com/fortress07/fortress-scan) | Traces untrusted data through code in 22 languages to find vulnerabilities. Reports in Vietnamese. | Python |
-| [**PoisonLab**](https://github.com/fortress07/LLM-Data-Poisoning-Simulation-Sandbox) | Poison your own fine-tuning data, measure what the attack achieves, and test whether your review would catch it. | Python<br>JavaScript<br>C |
-| [**S-Graph**](https://github.com/fortress07/project_S-Graph) | Plot functions and get the area of a plane region by clicking its vertices on the graph. | JavaScript<br>CSS<br>HTML |
+<table>
+<tr><th width="157" align="left">Project</th><th width="525" align="left">What it does</th><th width="157" align="left">Language</th></tr>
+<tr><td><a href="https://github.com/fortress07/fortress-scan"><b>Fortress Scan</b></a></td><td>Traces untrusted data through code in 22 languages to find vulnerabilities. Reports in Vietnamese.</td><td>Python</td></tr>
+<tr><td><a href="https://github.com/fortress07/LLM-Data-Poisoning-Simulation-Sandbox"><b>PoisonLab</b></a></td><td>Poison your own fine-tuning data, measure what the attack achieves, and test whether your review would catch it.</td><td>Python<br>JavaScript<br>C</td></tr>
+<tr><td><a href="https://github.com/fortress07/project_S-Graph"><b>S-Graph</b></a></td><td>Plot functions and get the area of a plane region by clicking its vertices on the graph.</td><td>JavaScript<br>CSS<br>HTML</td></tr>
+</table>
 
 ## 05. Languages & tools
 
 ### Languages
 
-| Python | JavaScript | C | C++ | Java |
-|:-:|:-:|:-:|:-:|:-:|
-| <img src="assets/icons/python.svg" width="48" height="48" alt="Python"> | <img src="assets/icons/javascript.svg" width="48" height="48" alt="JavaScript"> | <img src="assets/icons/c.svg" width="48" height="48" alt="C"> | <img src="assets/icons/cpp.svg" width="48" height="48" alt="C++"> | <img src="assets/icons/java.svg" width="48" height="48" alt="Java"> |
-| **Pascal** | **Bash** | **PowerShell** | **HTML5** | **CSS3** |
-| <img src="assets/icons/pascal.svg" width="48" height="48" alt="Pascal"> | <img src="assets/icons/bash.svg" width="48" height="48" alt="Bash"> | <img src="assets/icons/powershell.svg" width="48" height="48" alt="PowerShell"> | <img src="assets/icons/html5.svg" width="48" height="48" alt="HTML5"> | <img src="assets/icons/css3.svg" width="48" height="48" alt="CSS3"> |
+<table>
+<tr><th width="80" align="left">Python</th><th width="117" align="left">JavaScript</th><th width="73" align="left">C</th><th width="73" align="left">C++</th><th width="73" align="left">Java</th><th width="80" align="left">Pascal</th><th width="73" align="left">Bash</th><th width="117" align="left">PowerShell</th><th width="73" align="left">HTML5</th><th width="73" align="left">CSS3</th></tr>
+<tr><td><img src="assets/icons/python.svg" width="48" height="48" alt="Python"></td><td><img src="assets/icons/javascript.svg" width="48" height="48" alt="JavaScript"></td><td><img src="assets/icons/c.svg" width="48" height="48" alt="C"></td><td><img src="assets/icons/cpp.svg" width="48" height="48" alt="C++"></td><td><img src="assets/icons/java.svg" width="48" height="48" alt="Java"></td><td><img src="assets/icons/pascal.svg" width="48" height="48" alt="Pascal"></td><td><img src="assets/icons/bash.svg" width="48" height="48" alt="Bash"></td><td><img src="assets/icons/powershell.svg" width="48" height="48" alt="PowerShell"></td><td><img src="assets/icons/html5.svg" width="48" height="48" alt="HTML5"></td><td><img src="assets/icons/css3.svg" width="48" height="48" alt="CSS3"></td></tr>
+</table>
 
 ### Tooling
 
-| Node.js | Git | GitHub Actions | pytest |
-|:-:|:-:|:-:|:-:|
-| <img src="assets/icons/node-js.svg" width="48" height="48" alt="Node.js"> | <img src="assets/icons/git.svg" width="48" height="48" alt="Git"> | <img src="assets/icons/github-actions.svg" width="48" height="48" alt="GitHub Actions"> | <img src="assets/icons/pytest.svg" width="48" height="48" alt="pytest"> |
-| **Ruff** | **SonarQube** | **Linux** |  |
-| <img src="assets/icons/ruff.svg" width="48" height="48" alt="Ruff"> | <img src="assets/icons/sonarqube.svg" width="48" height="48" alt="SonarQube"> | <img src="assets/icons/linux.svg" width="48" height="48" alt="Linux"> |  |
+<table>
+<tr><th width="114" align="left">Node.js</th><th width="114" align="left">Git</th><th width="154" align="left">GitHub Actions</th><th width="114" align="left">pytest</th><th width="114" align="left">Ruff</th><th width="114" align="left">SonarQube</th><th width="114" align="left">Linux</th></tr>
+<tr><td><img src="assets/icons/node-js.svg" width="48" height="48" alt="Node.js"></td><td><img src="assets/icons/git.svg" width="48" height="48" alt="Git"></td><td><img src="assets/icons/github-actions.svg" width="48" height="48" alt="GitHub Actions"></td><td><img src="assets/icons/pytest.svg" width="48" height="48" alt="pytest"></td><td><img src="assets/icons/ruff.svg" width="48" height="48" alt="Ruff"></td><td><img src="assets/icons/sonarqube.svg" width="48" height="48" alt="SonarQube"></td><td><img src="assets/icons/linux.svg" width="48" height="48" alt="Linux"></td></tr>
+</table>
 
 ### AI / ML
 
-| PyTorch | Transformers | PEFT |
-|:-:|:-:|:-:|
-| <img src="assets/icons/pytorch.svg" width="48" height="48" alt="PyTorch"> | <img src="assets/icons/transformers.svg" width="48" height="48" alt="Transformers"> | <img src="assets/icons/peft.svg" width="48" height="48" alt="PEFT"> |
+<table>
+<tr><th width="280" align="left">PyTorch</th><th width="280" align="left">Transformers</th><th width="280" align="left">PEFT</th></tr>
+<tr><td><img src="assets/icons/pytorch.svg" width="48" height="48" alt="PyTorch"></td><td><img src="assets/icons/transformers.svg" width="48" height="48" alt="Transformers"></td><td><img src="assets/icons/peft.svg" width="48" height="48" alt="PEFT"></td></tr>
+</table>
 
 ### Offensive
 
-| Burp Suite | Nmap | sqlmap | Wireshark | IDA Pro |
-|:-:|:-:|:-:|:-:|:-:|
-| <img src="assets/icons/burp-suite.svg" width="48" height="48" alt="Burp Suite"> | <img src="assets/icons/nmap.svg" width="48" height="48" alt="Nmap"> | <img src="assets/icons/sqlmap.svg" width="48" height="48" alt="sqlmap"> | <img src="assets/icons/wireshark.svg" width="48" height="48" alt="Wireshark"> | <img src="assets/icons/ida-pro.svg" width="48" height="48" alt="IDA Pro"> |
+<table>
+<tr><th width="168" align="left">Burp Suite</th><th width="168" align="left">Nmap</th><th width="168" align="left">sqlmap</th><th width="168" align="left">Wireshark</th><th width="168" align="left">IDA Pro</th></tr>
+<tr><td><img src="assets/icons/burp-suite.svg" width="48" height="48" alt="Burp Suite"></td><td><img src="assets/icons/nmap.svg" width="48" height="48" alt="Nmap"></td><td><img src="assets/icons/sqlmap.svg" width="48" height="48" alt="sqlmap"></td><td><img src="assets/icons/wireshark.svg" width="48" height="48" alt="Wireshark"></td><td><img src="assets/icons/ida-pro.svg" width="48" height="48" alt="IDA Pro"></td></tr>
+</table>
 
 ### Infra & defense
 
-| Docker | pfSense | Suricata |
-|:-:|:-:|:-:|
-| <img src="assets/icons/docker.svg" width="48" height="48" alt="Docker"> | <img src="assets/icons/pfsense.svg" width="48" height="48" alt="pfSense"> | <img src="assets/icons/suricata.svg" width="48" height="48" alt="Suricata"> |
+<table>
+<tr><th width="280" align="left">Docker</th><th width="280" align="left">pfSense</th><th width="280" align="left">Suricata</th></tr>
+<tr><td><img src="assets/icons/docker.svg" width="48" height="48" alt="Docker"></td><td><img src="assets/icons/pfsense.svg" width="48" height="48" alt="pfSense"></td><td><img src="assets/icons/suricata.svg" width="48" height="48" alt="Suricata"></td></tr>
+</table>
 
 ### Code audit
 
-| Semgrep | CodeQL | OWASP Top 10 |
-|:-:|:-:|:-:|
-| <img src="assets/icons/semgrep.svg" width="48" height="48" alt="Semgrep"> | <img src="assets/icons/codeql.svg" width="48" height="48" alt="CodeQL"> | <img src="assets/icons/owasp-top-10.svg" width="48" height="48" alt="OWASP Top 10"> |
+<table>
+<tr><th width="280" align="left">Semgrep</th><th width="280" align="left">CodeQL</th><th width="280" align="left">OWASP Top 10</th></tr>
+<tr><td><img src="assets/icons/semgrep.svg" width="48" height="48" alt="Semgrep"></td><td><img src="assets/icons/codeql.svg" width="48" height="48" alt="CodeQL"></td><td><img src="assets/icons/owasp-top-10.svg" width="48" height="48" alt="OWASP Top 10"></td></tr>
+</table>
 
 ### Focus areas
 
-| Web & API pentest | Source code audit | Taint analysis | Supply chain | LLM / MCP security |
-|:-:|:-:|:-:|:-:|:-:|
-| <img src="assets/icons/web-api-pentest.svg" width="48" height="48" alt="Web &amp; API pentest"> | <img src="assets/icons/source-code-audit.svg" width="48" height="48" alt="Source code audit"> | <img src="assets/icons/taint-analysis.svg" width="48" height="48" alt="Taint analysis"> | <img src="assets/icons/supply-chain.svg" width="48" height="48" alt="Supply chain"> | <img src="assets/icons/llm-mcp-security.svg" width="48" height="48" alt="LLM / MCP security"> |
+<table>
+<tr><th width="180" align="left">Web & API pentest</th><th width="180" align="left">Source code audit</th><th width="153" align="left">Taint analysis</th><th width="135" align="left">Supply chain</th><th width="189" align="left">LLM / MCP security</th></tr>
+<tr><td><img src="assets/icons/web-api-pentest.svg" width="48" height="48" alt="Web &amp; API pentest"></td><td><img src="assets/icons/source-code-audit.svg" width="48" height="48" alt="Source code audit"></td><td><img src="assets/icons/taint-analysis.svg" width="48" height="48" alt="Taint analysis"></td><td><img src="assets/icons/supply-chain.svg" width="48" height="48" alt="Supply chain"></td><td><img src="assets/icons/llm-mcp-security.svg" width="48" height="48" alt="LLM / MCP security"></td></tr>
+</table>
 
 ## 06. Links
 
-| | Channel | Address |
-|:-:|---|---|
-| <img src="assets/icons/link-email.svg" width="20" height="20" alt=""> | **Email** | [vophuvinh15012007@gmail.com](mailto:vophuvinh15012007@gmail.com) |
-| <img src="assets/icons/link-hackerone.svg" width="20" height="20" alt=""> | **HackerOne** | [hackerone.com/fortress07vn](https://hackerone.com/fortress07vn) |
-| <img src="assets/icons/link-portfolio.svg" width="20" height="20" alt=""> | **Portfolio** | [fortress07.github.io/profile](https://fortress07.github.io/profile/) |
-| <img src="assets/icons/link-facebook.svg" width="20" height="20" alt=""> | **Facebook** | [facebook.com/f0r7r355](https://www.facebook.com/f0r7r355) |
-| <img src="assets/icons/link-instagram.svg" width="20" height="20" alt=""> | **Instagram** | [instagram.com/f0r7r355](https://www.instagram.com/f0r7r355) |
-| <img src="assets/icons/link-tiktok.svg" width="20" height="20" alt=""> | **TikTok** | [tiktok.com/@fortress.vn](https://www.tiktok.com/@fortress.vn) |
+<table>
+<tr><th width="48" align="left"></th><th width="208" align="left">Channel</th><th width="583" align="left">Address</th></tr>
+<tr><td><img src="assets/icons/link-email.svg" width="20" height="20" alt=""></td><td><b>Email</b></td><td><a href="mailto:vophuvinh15012007@gmail.com">vophuvinh15012007@gmail.com</a></td></tr>
+<tr><td><img src="assets/icons/link-hackerone.svg" width="20" height="20" alt=""></td><td><b>HackerOne</b></td><td><a href="https://hackerone.com/fortress07vn">hackerone.com/fortress07vn</a></td></tr>
+<tr><td><img src="assets/icons/link-portfolio.svg" width="20" height="20" alt=""></td><td><b>Portfolio</b></td><td><a href="https://fortress07.github.io/profile/">fortress07.github.io/profile</a></td></tr>
+<tr><td><img src="assets/icons/link-facebook.svg" width="20" height="20" alt=""></td><td><b>Facebook</b></td><td><a href="https://www.facebook.com/f0r7r355">facebook.com/f0r7r355</a></td></tr>
+<tr><td><img src="assets/icons/link-instagram.svg" width="20" height="20" alt=""></td><td><b>Instagram</b></td><td><a href="https://www.instagram.com/f0r7r355">instagram.com/f0r7r355</a></td></tr>
+<tr><td><img src="assets/icons/link-tiktok.svg" width="20" height="20" alt=""></td><td><b>TikTok</b></td><td><a href="https://www.tiktok.com/@fortress.vn">tiktok.com/@fortress.vn</a></td></tr>
+</table>
 
 <p align="center"><samp>[*] session closed · stay curious, disclose responsibly</samp></p>
