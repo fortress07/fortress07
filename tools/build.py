@@ -3,12 +3,9 @@
 
     uv run --with fonttools --with brotli tools/build.py
 
-Each image is drawn twice, into assets/dark/ and assets/light/. README.md links
-both copies and ends each link with #gh-dark-mode-only or #gh-light-mode-only:
-GitHub's own CSS hides the copy that does not match the theme chosen on GitHub.
-(<picture> follows the OS theme instead, so it shows the wrong copy whenever a
-visitor picks a GitHub theme that differs from their system.) That suffix is why
-links here must not carry a #fragment of their own.
+The profile ships the dark set only (THEME below). The light palette stays in
+THEMES; switching per viewer was dropped because GitHub's <picture> follows the
+OS theme rather than the one chosen on GitHub.
 
 Fonts (JetBrains Mono, OFL-1.1), brand logos (Simple Icons, CC0) and glyphs
 (Primer Octicons, MIT) are downloaded once into tools/.cache. Each SVG embeds a
@@ -29,7 +26,7 @@ from fontTools import subset
 from fontTools.ttLib import TTFont
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets"  # set per theme by use_theme()
+OUT = ROOT / "assets"
 CACHE = pathlib.Path(__file__).resolve().parent / ".cache"
 
 FONT_URL = "https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@v2.304/fonts/ttf/JetBrainsMono-{}.ttf"
@@ -56,10 +53,11 @@ THEMES = {
 globals().update(THEMES["dark"])
 
 
+THEME = "dark"
+
+
 def use_theme(name):
-    global OUT
     globals().update(THEMES[name])
-    OUT = ROOT / "assets" / name
 
 
 def sev_color(sev):
@@ -71,23 +69,23 @@ PORTFOLIO = "https://fortress07.github.io/profile/"
 DISCLOSURES = [
     # line is the CWE class shown under each row; radar is the blip's bearing and radius
     dict(slug="55640", id="CVE-2026-55640", pkg="nextcloud-mcp-server", score="9.1",
-         sev="CRITICAL", cvss="CVSS 3.1", date="2026-06-14", url="https://github.com/cbcoutinho/nextcloud-mcp-server/security/advisories/GHSA-8vh3-g2qg-2h2c",
+         sev="CRITICAL", cvss="CVSS 3.1", date="2026-06-14", wu="wu-55640",
          line="CWE-306 · Missing Authentication for Critical Function",
          radar=(40, 100)),
     dict(slug="55849", id="CVE-2026-55849", pkg="@cyclonedx/cyclonedx-npm", score="8.5",
-         sev="HIGH", cvss="CVSS 4.0", date="2026-06-16", url="https://github.com/advisories/GHSA-v75r-vx73-82pj",
+         sev="HIGH", cvss="CVSS 4.0", date="2026-06-16", wu="wu-55849",
          line="CWE-78 · OS Command Injection",
          radar=(110, 120)),
     dict(slug="71538", id="CVE-2026-71538", pkg="@cyclonedx/cyclonedx-npm", score="8.5",
-         sev="HIGH", cvss="CVSS 4.0", date="2026-07-07", url="https://github.com/CycloneDX/cyclonedx-node-npm/security/advisories/GHSA-q69g-4hcv-6jg4",
+         sev="HIGH", cvss="CVSS 4.0", date="2026-07-07", wu="wu-71538",
          line="CWE-78 · OS Command Injection",
          radar=(165, 70)),
     dict(slug="pbf", id="Mapbox bounty", pkg="mapbox/pbf", score="8.1",
-         sev="HIGH", cvss="CVSS 3.1", date="2026-07-09", url="https://github.com/mapbox/pbf/pull/149",
+         sev="HIGH", cvss="CVSS 3.1", date="2026-07-09", wu="wu-h1-pbf",
          line="CWE-94 · Code Injection",
          radar=(232, 105)),
     dict(slug="57207", id="CVE-2026-57207", pkg="netbox-mcp-server", score="5.9",
-         sev="MODERATE", cvss="CVSS 3.1", date="2026-06-18", url="https://github.com/netboxlabs/netbox-mcp-server/security/advisories/GHSA-5qg7-j8mr-9477",
+         sev="MODERATE", cvss="CVSS 3.1", date="2026-06-18", wu="wu-57207",
          line="CWE-306 · Missing Authentication for Critical Function · CWE-1059 · Insufficient Technical Documentation",
          radar=(300, 128)),
 ]
@@ -127,7 +125,7 @@ STACK = [
 ]
 
 CONTACTS = [
-    dict(slug="email", href="mailto:vophuvinh15012007@gmail.com?subject=Hello%20Fortress", icon="gmail", color="#ea4335", label="Email",
+    dict(slug="email", href="mailto:vophuvinh15012007@gmail.com", icon="gmail", color="#ea4335", label="Email",
          handle="vophuvinh15012007@gmail.com"),
     dict(slug="hackerone", href="https://hackerone.com/fortress07vn", icon="hackerone", color="TEXT", label="HackerOne",
          handle="hackerone.com/fortress07vn"),
@@ -746,14 +744,8 @@ PROJECT_URL = "https://github.com/fortress07/{}"
 
 
 def themed(name, alt, href=None, width="100%"):
-    """Both copies of an image; GitHub hides the one that does not match its theme."""
-    out = []
-    for theme in THEMES:
-        link = href or f"assets/{theme}/{name}"
-        assert "#" not in link, link
-        out.append(f'<a href="{link}#gh-{theme}-mode-only"><img src="assets/{theme}/{name}" '
-                   f'width="{width}" alt="{esc(alt)}"></a>')
-    return "".join(out)
+    img = f'<img src="assets/{name}" width="{width}" alt="{esc(alt)}">'
+    return f'<a href="{href}">{img}</a>' if href else img
 
 
 def build_readme():
@@ -771,7 +763,7 @@ def build_readme():
                "bounty on HackerOne (CWE-94 Code Injection). 4 CVEs (CWE-306 Missing Authentication, "
                "CWE-78 OS Command Injection)."),
         "\n".join(themed(f'cve-{d["slug"]}.svg', f'{d["id"]} · {d["pkg"]} · {sev(d)} · '
-                          f'{d["line"].split(" · ")[0]}', d["url"]) for d in DISCLOSURES),
+                          f'{d["line"].split(" · ")[0]}', f'{PORTFOLIO}#/{d["wu"]}') for d in DISCLOSURES),
         themed("section-projects.svg", "03 / projects"),
         '<p align="center">\n' + "\n".join(
             "  " + themed(f'project-{p["slug"]}.svg',
@@ -791,16 +783,15 @@ def build_readme():
 
 
 if __name__ == "__main__":
-    for theme in THEMES:
-        use_theme(theme)
-        print(f"writing assets/{theme}:")
-        build_banner()
-        build_sections()
-        build_about()
-        build_achievements()
-        build_disclosures()
-        build_projects()
-        build_stack()
-        build_contacts()
-        build_footer()
+    use_theme(THEME)
+    print("writing:")
+    build_banner()
+    build_sections()
+    build_about()
+    build_achievements()
+    build_disclosures()
+    build_projects()
+    build_stack()
+    build_contacts()
+    build_footer()
     build_readme()
