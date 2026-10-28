@@ -4,11 +4,8 @@
 
 - My name is **Vo Phu Vinh**.
 - Information Security student at **HCMUTE**, Ho Chi Minh City, Vietnam.
-- **Finalist** (Consolation Prize) at the Cybersecurity Student Contest (CSC) 2026, Group A.
-- **1st place** at HCMUTE Capture the Flag (UTECTF) 2026.
 - Freelance pentester: web and API testing, source code audit, LLM and MCP security.
-- Vulnerability researcher with **4 CVEs** and **1 bug bounty** on HackerOne.
-- Responsible disclosure: report privately, help ship the fix, publish once users are safe.
+- Responsible disclosure: report privately, publish once users are safe.
 
 ## 02. Achievements
 
