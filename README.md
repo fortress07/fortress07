@@ -2,7 +2,8 @@
 
 ## 01. About me
 
-- Information Security student at **HCMUTE**, Ho Chi Minh City, Vietnam
+- My name is **Vo Phu Vinh**.
+- Information Security student at **HCMUTE**, Ho Chi Minh City, Vietnam.
 - **Finalist** (Consolation Prize) at the Cybersecurity Student Contest (CSC) 2026, Group A.
 - **1st place** at HCMUTE Capture the Flag (UTECTF) 2026.
 - Freelance pentester: web and API testing, source code audit, LLM and MCP security.
